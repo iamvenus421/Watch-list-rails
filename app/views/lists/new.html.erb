@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Add your list</h1>
+  <%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Confirm", class: 'btn btn-primary'%>
+  <%= link_to "Back", lists_path, class: 'btn btn-secondary' %>
+  <% end %>
+</div>
