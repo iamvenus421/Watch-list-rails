@@ -3,5 +3,24 @@
   <%= @list.name %>
   <br>
   <br>
+  <p>--------------------------------------------------------------------------------------------</p>
+  <h2>Bookmarks</h2>
+    <table>
+    <tr>
+      <th>Movie</th>
+      <th>Comment</th>
+      <th>Delete?</th>
+    </tr>
+      <% @bookmarks.each do |bookmark| %>
+      <tr>
+        <td><%= bookmark.movie.title %></td>
+        <td><%= bookmark.comment %></td>
+        <td><%= link_to "  X", bookmark_path(params[:id]) , method: :delete%></td>
+      </tr>
+    </table>
+  <% end %>
+  <br>
+  <br>
   <%= link_to "Back", lists_path, class: 'btn btn-secondary' %>
+  <%= link_to "Create a bookmark", new_list_bookmark_path(@list), class: 'btn btn-primary' %>
 </div>
