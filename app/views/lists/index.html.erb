@@ -8,10 +8,13 @@
 
 <div class="container">
   <h1>List</h1>
-    <ul>
-      <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list) %></li>
-      <% end %>
-    </ul>
-      <%= link_to "Create new list", new_list_path, class: 'btn btn-primary' %>
+      <% images = ["card_1.jpg","card_2.jpg","card_3.jpg"] %>
+      <ul>
+        <% @lists.each_with_index do |list, index| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path(images[index]) %>);">
+        <%= link_to list.name, list_path(list) %>
+        </div>
+        <% end %>
+      </ul>
+        <%= link_to "Create new list", new_list_path, class: 'btn btn-primary' %>
 </div>
